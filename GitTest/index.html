@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta charset="UTF-8">
+<meta name = "viewport" content="width=device-width, initial-scale =1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+<title>자바스크립트 기초</title>
+<style>
+    body{ font-size: 3rem;}
+    h1
+    {
+        background: #fff000;
+    }
+</style>
+
+<script>
+
+
+</script>
+<script>
+  /*   window.onload = function(){
+        var title = document.getElementById('main-title');
+        console.log(title);
+    }
+    window.addEventListener('load', function() { //첫번째꺼랑 똑같음 : 다 로드될때까지 기다림
+        var title = document.getElementById('main-title');
+        var spantitle = title.getElementsByTagName('span');
+        console.log(spantitle);
+    });
+    window.addEventListener('DOMContentLoaded', function() {
+
+
+    }); */
+    
+</script>
+<style>
+.ilbuni 
+{
+    display: inline-block;
+    list-style :none;
+}
+.ilbuni img{
+    width : 100px;
+}
+.link-google{
+    color:red;
+
+}
+.special{
+background: pink;
+
+}
+.special1{
+background: red;
+
+} 
+.btn {
+    font-size: 2rem;
+
+}
+.menu {
+   display :flex; 
+   background-color: yellowgreen;
+
+}
+.menu-link {
+    margin : .1em;
+    padding : .3em;
+    color : #fff;
+    background: dodgerblue;
+    border : 2px solid dodgerblue;
+    list-style : none;
+
+}
+.menu-active {
+background: orange;
+
+}
+
+</style>
+
+</head>
+<body>
+<h1 id = "main-title">hello</h1>
+
+<nav class ="menu">
+    <a href ="#" class = "menu-link" data-menu = "1">menu1</a>
+    <a href ="#" class = "menu-link" data-menu = "2">menu1</a>
+    <a href ="#" class = "menu-link" data-menu = "3">menu1</a>
+
+</nav>
+<script>
+    var menu = document.querySelector('.menu');
+    var currentMenu;
+    function clickHandler1 (e){
+        if(currentMenu){
+            currentMenu.classList.remove('menu-active');
+           
+
+        }
+        currentMenu = e.target;
+        currentMenu.classList.add('menu-active');
+    }
+    menu.addEventListener('click',clickHandler1);
+
+</script>
+<script>
+    var menuLinks = document.querySelectorAll('.menu-link');
+    // var currentMenu;
+    
+    // function clickMenuHandler(){
+    //     var activemenu = document.querySelector('.menu-active');
+        
+    //     if(currentMenu){ //이런식으로 써도 가능하다고? 그냥 변수명을 써주면 존재여부 판단함.
+            
+    //         if(currentMenu.classList.contains('menu-active')){
+    //             activemenu.classList.remove('menu-active');
+    //         }
+            
+    //     }
+    //     currentMenu = this;
+    //     //this.classList.add('menu-active'); //호출한 객체를 가르킴
+    // }
+
+
+    for (var i =0; i < menuLinks.length ; i++){
+        menuLinks[i].addEventListener('click', clickMenuHandler);
+    }
+    
+</script>
+<ul class = "ilbuniMom">
+    <li class = "ilbuni">    <img src = "ilbuni-1.png">
+    </li>
+    <li class = "ilbuni">
+        <img src = "ilbuni-1.png">
+    </li>
+    <li class = "ilbuni">
+        <img src = "ilbuni-1.png">
+    </li>
+
+    <button class = "btn">클릭하세요!</button>
+    <script>
+        var btn = document.querySelector('.btn');
+        var mainTitle = document.querySelector('#main-title');
+        
+        function btnClickHandler (){
+            mainTitle.style.background = 'dodgerblue';
+        }
+        btn.onclick =  btnClickHandler;
+        // btn.addEventListener('click' ,btnClickHandler);
+    </script>
+    
+
+</ul>
+
+<script>
+    var ilbunMom = document.querySelector('.ilbuniMom');
+    var listElem = document.createElement('li');
+    listElem.innerHTML = '<span>일분이</span>';
+    console.log(listElem);
+    ilbunMom.appendChild(listElem);
+    
+    
+</script>
+<script>
+    var a = document.querySelector('#main-title span');//막강함 #css 선택에서 id앞에 붙이지는거?
+    console.log(a);
+    var ilbuni = document.querySelectorAll('.ilbuni');//막강함 #css 선택에서 id앞에 붙이지는거?
+    console.log(ilbuni[0]);
+    for (var i = 0 ; i <ilbuni.length; i++)
+    ilbuni[i].style.border = '3px solid red';
+    var link = document.querySelector('.ilbuni a');
+    //console.log(link.getAttribute('class'));
+    link.setAttribute('href', 'https://www.naver.com');
+    //link.className = 'special link-google';
+    link.classList.add('special');
+    
+    
+    setTimeout(function(){
+        link.classList.remove('special');
+
+    },2000);
+    console.log(link.classList.contains('special'))
+    
+</script>
+
+</body>   
+</html>
